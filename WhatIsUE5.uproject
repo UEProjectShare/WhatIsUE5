@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{F8B59DE2-4448-CABE-A105-738533E2975E}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "WhatIsUE5",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		},
+		{
+			"Name": "VirtualProductionUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "RenderGraphInsights",
+			"Enabled": true
+		}
+	]
+}
