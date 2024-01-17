@@ -31,7 +31,7 @@ public:
 /// <summary>
 /// A singleton Shader Manager for our Shader Type
 /// </summary>
-class CUSTOMSHADERSDECLARATIONS_API FWhiteNoiseCSManager
+class FWhiteNoiseCSManager
 {
 public:
 	//Get the instance

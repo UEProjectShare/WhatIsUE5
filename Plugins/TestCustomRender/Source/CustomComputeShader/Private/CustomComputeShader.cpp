@@ -7,6 +7,9 @@ DEFINE_LOG_CATEGORY(CustomComputeShader);
 void FCustomComputeShader::StartupModule()
 {
 	UE_LOG(CustomComputeShader, Warning, TEXT("CustomComputeShader module has been loaded"));
+
+	const FString ShaderDirectory = FPaths::Combine(FPaths::ProjectPluginsDir(), TEXT("TestCustomRender/Shaders/Private"));
+	AddShaderSourceDirectoryMapping("/CustomShaders", ShaderDirectory);
 }
 
 void FCustomComputeShader::ShutdownModule()

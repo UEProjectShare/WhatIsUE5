@@ -1,7 +1,7 @@
 #include "WhiteNoiseConsumer.h"
 
 #include "Kismet/GameplayStatics.h"
-#include "CustomShadersDeclarations/Private/ComputeShaderDeclaration.h"
+#include "ComputeShaderDeclaration.h"
 
 // Sets default values
 AWhiteNoiseConsumer::AWhiteNoiseConsumer()

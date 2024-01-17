@@ -1,3 +1,4 @@
+/*
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "CustomShadersDeclarations.h"
@@ -18,4 +19,5 @@ void FCustomShadersDeclarationsModule::StartupModule()
 void FCustomShadersDeclarationsModule::ShutdownModule()
 {
 }
+*/
 
