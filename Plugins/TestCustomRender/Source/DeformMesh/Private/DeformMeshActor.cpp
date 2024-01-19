@@ -33,13 +33,13 @@ void ADeformMeshActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// if(Controller && DeformMeshComp)
-	// {
-	// 	const auto Transform = Controller->GetTransform();
-	// 	//We update the deform transform of the previously created deform mesh section
-	// 	DeformMeshComp->UpdateMeshSectionTransform(0, Transform);
-	// 	//We finalize all the deform transforms updates, in our case, just one
-	// 	DeformMeshComp->FinishTransformsUpdate();
-	// }
+	 if(Controller && DeformMeshComp)
+	 {
+		const auto Transform = Controller->GetTransform();
+		//We update the deform transform of the previously created deform mesh section
+		DeformMeshComp->UpdateMeshSectionTransform(0, Transform);
+		//We finalize all the deform transforms updates, in our case, just one
+		DeformMeshComp->FinishTransformsUpdate();
+	 }
 }
 

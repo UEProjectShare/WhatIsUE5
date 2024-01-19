@@ -324,7 +324,7 @@ public:
 			CreateInfo.ResourceArray = ResourceArray;
 			//Set the debug name so we can find the resource when debugging in RenderDoc
 			CreateInfo.DebugName = TEXT("DeformMesh_TransformsSB");
-
+			
 			DeformTransformsSB = RHICreateStructuredBuffer(sizeof(FMatrix), NumSections * sizeof(FMatrix), BUF_ShaderResource, CreateInfo);
 			bDeformTransformsDirty = false;
 			///////////////////////////////////////////////////////////////
@@ -369,7 +369,7 @@ public:
 	}
 
 	/* Update the deform transform that is being used to deform this mesh section, this will just update this section's entry in the CPU array*/
-	void UpdateDeformTransform_RenderThread(int32 SectionIndex, FMatrix Transform)
+	void UpdateDeformTransform_RenderThread(int32 SectionIndex, const FMatrix& Transform)
 	{
 		check(IsInRenderingThread());
 		if (SectionIndex < Sections.Num() &&
@@ -444,8 +444,8 @@ public:
 						//Alloate a temporary primitive uniform buffer, fill it with the data and set it in the batch element
 						FDynamicPrimitiveUniformBuffer& DynamicPrimitiveUniformBuffer = Collector.AllocateOneFrameResource<FDynamicPrimitiveUniformBuffer>();
 						DynamicPrimitiveUniformBuffer.Set(GetLocalToWorld(), PreviousLocalToWorld, GetBounds(), GetLocalBounds(), true, bHasPrecomputedVolumetricLightmap, DrawsVelocity(), bOutputVelocity);
-						BatchElement.PrimitiveUniformBufferResource = &DynamicPrimitiveUniformBuffer.UniformBuffer;
-						BatchElement.PrimitiveIdMode = PrimID_DynamicPrimitiveShaderData;
+						BatchElement.PrimitiveUniformBuffer = DynamicPrimitiveUniformBuffer.UniformBuffer.GetUniformBufferRef();
+						BatchElement.PrimitiveIdMode = PrimID_FromPrimitiveSceneInfo;
 
 						//Additional data 
 						BatchElement.FirstIndex = 0;
